@@ -4,6 +4,8 @@ import { IMessageBar } from 'utils/interfaces';
 
 export const messageStr = {
   open: false,
+  match: '',
+  bet: '',
 };
 
 export const MessageBar = (props: IMessageBar) => {
@@ -23,7 +25,7 @@ export const MessageBar = (props: IMessageBar) => {
       onClose={handleClose}
     >
       <Alert onClose={handleClose} severity="success" sx={{ width: '100%', color: 'black' }}>
-        Ставка принята
+        Спасибо, ваша ставка на матч {messageStr.match} на {messageStr.bet} принята
       </Alert>
     </Snackbar>
   );

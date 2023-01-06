@@ -43,6 +43,25 @@ const randomNumbers = () => {
   return arrCoefficients;
 };
 
+const transformCheckedValue = (value: string, arr: IGames) => {
+  let res = '';
+  switch (value) {
+    case 'П1': {
+      res = 'победу ' + arr.player1;
+      break;
+    }
+    case 'П2': {
+      res = 'победу ' + arr.player2;
+      break;
+    }
+    case 'Х': {
+      res = 'ничью';
+      break;
+    }
+  }
+  return res;
+};
+
 export const GamePage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -64,9 +83,11 @@ export const GamePage = () => {
   const checkedGame = games.find((game) => game.id === +id!) as IGames;
 
   const onSubmit = () => {
-    gamesBetting[checkedGame.id] = checked;
+    gamesBetting[checkedGame.id] = transformCheckedValue(checked, checkedGame);
     goBack();
     messageStr.open = true;
+    messageStr.match = `${checkedGame.player1} vs ${checkedGame.player2} `;
+    messageStr.bet = gamesBetting[checkedGame.id];
   };
   useEffect(() => {
     if (!checkedGame) {

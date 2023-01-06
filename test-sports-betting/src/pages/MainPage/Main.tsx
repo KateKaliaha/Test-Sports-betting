@@ -15,7 +15,7 @@ export const Main = () => {
     setMessage(data);
   }
 
-  const bettingGames = Object.keys(gamesBetting);
+  const bettingGamesID = Object.keys(gamesBetting);
 
   return (
     <Container className="main">
@@ -25,7 +25,7 @@ export const Main = () => {
         {games.map((game: IGames) => (
           <ListItem disablePadding key={game.id}>
             <ListItemButton
-              disabled={bettingGames.includes(game.id + '') ? true : false}
+              disabled={bettingGamesID.includes(game.id + '') ? true : false}
               className="games-list"
               onClick={() => openGamePage(game.id)}
               sx={{ padding: '6px', width: '50%' }}
@@ -35,8 +35,8 @@ export const Main = () => {
               </div>
             </ListItemButton>
             <ListItemText>
-              {bettingGames.includes(game.id + '')
-                ? `Ваша ставка ${gamesBetting[game.id + '']}`
+              {bettingGamesID.includes(game.id + '')
+                ? `Ваша ставка на ${gamesBetting[game.id + '']}`
                 : null}
             </ListItemText>
           </ListItem>
