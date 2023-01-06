@@ -1,4 +1,4 @@
-import { IGames } from './interfaces';
+import { IGames, IGamesBetting } from './interfaces';
 
 export const games: IGames[] = [
   { id: 1, data: '10.01', time: '03.00', player1: 'Вашингтон', player2: 'Новый Орлеан' },
@@ -17,3 +17,5 @@ export const games: IGames[] = [
   { id: 14, data: '12.01', time: '03.00', player1: 'Детройт', player2: 'Миннесота' },
   { id: 15, data: '12.01', time: '03.00', player1: 'Вашингтон', player2: 'Чикаго' },
 ];
+
+export const gamesBetting: IGamesBetting = {};

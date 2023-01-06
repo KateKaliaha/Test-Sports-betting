@@ -8,7 +8,7 @@ import SportsBasketballIcon from '@mui/icons-material/SportsBasketball';
 
 export const Header = () => {
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box>
       <AppBar position="static" sx={{ backgroundColor: 'inherit', height: '10vh' }}>
         <Toolbar variant="dense">
           <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>

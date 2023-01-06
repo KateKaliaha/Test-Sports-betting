@@ -50,6 +50,11 @@ body {
 
 .main {
   flex: 1 1 auto;
+  /* color: rgb(231, 189, 137) */
+}
+
+.MuiFormControlLabel-label.css-ahj2mt-MuiTypography-root {
+  font-size: 1.5rem;
 }
 
 @media (max-width: 500px) {
