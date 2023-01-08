@@ -2,20 +2,8 @@
   box-sizing: border-box;
 }
 
-html,
-body {
-  height: 100%;
-}
-body {
-  margin: 0 auto;
-}
-
-#root {
-  height: 100%;
-}
 .App {
   color: white;
-  min-height: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -39,9 +27,11 @@ body {
   align-items: center;
   font-size: 30px;
 }
+
 .MuiListItemButton-root {
   padding: 4px;
 }
+
 .games-list {
   list-style: none;
   display: flex;
@@ -50,15 +40,53 @@ body {
 
 .main {
   flex: 1 1 auto;
-  /* color: rgb(231, 189, 137) */
+  min-height: calc(100vh - 118.2px);
 }
 
 .MuiFormControlLabel-label.css-ahj2mt-MuiTypography-root {
   font-size: 1.5rem;
 }
 
+.game-info,
+.game-participants {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.game-time {
+  width: 100px;
+}
+
+@media (max-width: 650px) {
+  .MuiTypography-root.MuiTypography-h2 {
+    font-size: 2rem;
+  }
+}
+
 @media (max-width: 500px) {
   .MuiTypography-root.MuiTypography-h4 {
+    font-size: 1.3rem;
+  }
+
+  .MuiTypography-root.MuiTypography-h3 {
     font-size: 1.5rem;
+    min-width: 70%;
+  }
+
+  .MuiTypography-root.MuiTypography-h2 {
+    font-size: 1.5rem;
+  }
+
+  .MuiFormControlLabel-label.css-ahj2mt-MuiTypography-root {
+    font-size: 1rem;
+  }
+
+  .css-1c1s55e-MuiFormControlLabel-root {
+    margin-left: 0;
+  }
+
+  .game-info {
+    gap: 15px;
   }
 }

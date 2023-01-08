@@ -1,66 +1,15 @@
-import { Button, Container, Typography } from '@mui/material';
+import { Container, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { games, gamesBetting } from 'utils/games';
 import { IGames } from 'utils/interfaces';
-import { styled } from '@mui/material/styles';
-
-import Radio, { RadioProps } from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
-import { messageStr } from 'components/message/Message';
-
-const BisqueRadio = styled(Radio)<RadioProps>(() => ({
-  '&, &.Mui-checked': {
-    color: 'bisque',
-  },
-}));
-
-export const YellowButton = styled(Button)(() => ({
-  backgroundColor: 'bisque',
-  fontSize: '14px',
-  color: 'grey',
-  fontWeight: 700,
-  ':hover': {
-    backgroundColor: 'rgb(231, 189, 137)',
-    cursor: 'pointer',
-  },
-  ':disabled': {
-    backgroundColor: 'rgb(223, 228, 233)',
-  },
-})) as typeof Button;
-
-function getRandomArbitrary(min: number, max: number) {
-  return (Math.random() * (max - min) + min).toFixed(2);
-}
-
-const randomNumbers = () => {
-  const arrCoefficients: string[] = [];
-  for (let i = 0; i < 3; i++) {
-    arrCoefficients.push(getRandomArbitrary(1, 10));
-  }
-  return arrCoefficients;
-};
-
-const transformCheckedValue = (value: string, arr: IGames) => {
-  let res = '';
-  switch (value) {
-    case 'П1': {
-      res = 'победу ' + arr.player1;
-      break;
-    }
-    case 'П2': {
-      res = 'победу ' + arr.player2;
-      break;
-    }
-    case 'Х': {
-      res = 'ничью';
-      break;
-    }
-  }
-  return res;
-};
+import { messageStr } from 'components/Message';
+import { randomNumbers, transformCheckedValue } from 'utils/helpers';
+import { BisqueRadio } from 'components/RadioButton';
+import { YellowButton } from 'components/Button';
 
 export const GamePage = () => {
   const { id } = useParams();
@@ -83,12 +32,13 @@ export const GamePage = () => {
   const checkedGame = games.find((game) => game.id === +id!) as IGames;
 
   const onSubmit = () => {
-    gamesBetting[checkedGame.id] = transformCheckedValue(checked, checkedGame);
+    gamesBetting[checkedGame.id] = { ...transformCheckedValue(checked, checkedGame) };
     goBack();
     messageStr.open = true;
-    messageStr.match = `${checkedGame.player1} vs ${checkedGame.player2} `;
-    messageStr.bet = gamesBetting[checkedGame.id];
+    messageStr.match = `${checkedGame.player1.name} vs ${checkedGame.player2.name} `;
+    messageStr.bet = gamesBetting[checkedGame.id].winner;
   };
+
   useEffect(() => {
     if (!checkedGame) {
       navigate('/404');
@@ -113,7 +63,7 @@ export const GamePage = () => {
         <Typography variant="h5">{checkedGame.data}.2023</Typography>
         <Typography variant="h5">{checkedGame.time}</Typography>
         <Typography variant="h2" sx={{ mt: 10 }}>
-          {checkedGame.player1} vs {checkedGame.player2}
+          {checkedGame.player1.name} vs {checkedGame.player2.name}
         </Typography>
         <FormControl>
           <RadioGroup
@@ -128,18 +78,21 @@ export const GamePage = () => {
               labelPlacement="bottom"
               control={<BisqueRadio onClick={(event) => changeDisabledBtn(event)} />}
               label={coefficients[0] === undefined ? '' : 'П1 - ' + coefficients[0]}
+              sx={{ ml: { xs: 0 } }}
             />
             <FormControlLabel
               labelPlacement="bottom"
               value="Х"
               control={<BisqueRadio onClick={(event) => changeDisabledBtn(event)} />}
               label={coefficients[0] === undefined ? '' : 'Х - ' + coefficients[1]}
+              sx={{ ml: { xs: 0 } }}
             />
             <FormControlLabel
               labelPlacement="bottom"
               value="П2"
               control={<BisqueRadio onClick={(event) => changeDisabledBtn(event)} />}
               label={coefficients[0] === undefined ? '' : 'П2 - ' + coefficients[2]}
+              sx={{ ml: { xs: 0 } }}
             />
           </RadioGroup>
         </FormControl>

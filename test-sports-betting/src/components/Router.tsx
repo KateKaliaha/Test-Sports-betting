@@ -1,6 +1,6 @@
-import { ErrorPage } from 'pages/ErrorPage/ErrorPage';
-import { GamePage } from 'pages/GamePage/GamePage';
-import { Main } from 'pages/MainPage/Main';
+import { ErrorPage } from 'pages/ErrorPage';
+import { GamePage } from 'pages/GamePage';
+import { Main } from 'pages/MainPage';
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 

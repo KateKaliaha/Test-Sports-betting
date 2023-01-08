@@ -17,6 +17,7 @@ export const MessageBar = (props: IMessageBar) => {
     }
     props.onOpen(false);
   }
+
   return (
     <Snackbar
       open={open}
