@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/KateKaliaha/Test-Sports-betting/static/css/main.b39ff68e.css",
-    "main.js": "/KateKaliaha/Test-Sports-betting/static/js/main.fc58160c.js",
-    "index.html": "/KateKaliaha/Test-Sports-betting/index.html",
-    "main.b39ff68e.css.map": "/KateKaliaha/Test-Sports-betting/static/css/main.b39ff68e.css.map",
-    "main.fc58160c.js.map": "/KateKaliaha/Test-Sports-betting/static/js/main.fc58160c.js.map"
+    "main.css": "/Test-Sports-betting/static/css/main.b39ff68e.css",
+    "main.js": "/Test-Sports-betting/static/js/main.91d5d1e7.js",
+    "index.html": "/Test-Sports-betting/index.html",
+    "main.b39ff68e.css.map": "/Test-Sports-betting/static/css/main.b39ff68e.css.map",
+    "main.91d5d1e7.js.map": "/Test-Sports-betting/static/js/main.91d5d1e7.js.map"
   },
   "entrypoints": [
     "static/css/main.b39ff68e.css",
-    "static/js/main.fc58160c.js"
+    "static/js/main.91d5d1e7.js"
   ]
 }
