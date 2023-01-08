@@ -2,7 +2,7 @@
   "name": "test-sports-betting",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/KateKaliaha/Test-Sports-betting/",
+  "homepage": "https://katekaliaha.github.io/Test-Sports-betting/",
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
@@ -33,7 +33,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d ./build -e Test-Sports-betting"
   },
   "eslintConfig": {
     "extends": [
